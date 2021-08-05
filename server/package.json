@@ -1,0 +1,17 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "This is the server for my Todo app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Ko",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1"
+  }
+}
