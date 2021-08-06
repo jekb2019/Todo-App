@@ -1,6 +1,8 @@
 import { UserInputError } from "apollo-server-errors";
 import { GraphQLID, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
 import { v4 as uuid } from 'uuid';
+import IdentityType from './dataType/identity/identity.js';
+import HabitType from './dataType/habit/habit.js';
 
 let identities = [
     {id: '1', name: 'Best developer', description: 'The best programmer in the world'},
@@ -15,33 +17,6 @@ let habits = [
     {id: '3', name:'Eat healthy', description: 'No junk food!', identityId: '2'},
     {id: '4', name:'Be nice', description: 'Smile always', identityId: '3'},
 ]
-
-const IdentityType = new GraphQLObjectType({
-    name: 'Identity',
-    fields: () => ({
-        id: { type: new GraphQLNonNull(GraphQLID) },
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: GraphQLString },
-        habits: {
-            type: new GraphQLList(HabitType),
-            resolve: (parent, args) => (habits.filter(habit => parent.id === habit.identityId)),
-        }
-    }),
-});
-
-const HabitType = new GraphQLObjectType({
-    name: 'Habit',
-    fields: () => ({
-        id: { type: new GraphQLNonNull(GraphQLID) },
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: GraphQLString},
-        identityId: { type: new GraphQLNonNull(GraphQLID) },
-        identity: {
-            type: new GraphQLNonNull(IdentityType),
-            resolve: (parent, args) => (identities.find(identity => parent.identityId === identity.id))
-        }
-    }),
-});
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQuery',

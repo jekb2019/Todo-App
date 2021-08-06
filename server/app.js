@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use('/data', graphqlHTTP({
     schema,
-    graphiql: true,
+    graphiql: true, // Remove when deploying
 }));
 
 app.listen(port, () => {console.log(`Server listening on port ${process.env.PORT}`)});
