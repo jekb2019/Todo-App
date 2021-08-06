@@ -2,7 +2,6 @@ import { UserInputError } from "apollo-server-errors";
 import { GraphQLID, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
 import { v4 as uuid } from 'uuid';
 
-
 let identities = [
     {id: '1', name: 'Best developer', description: 'The best programmer in the world'},
     {id: '2', name: 'Healthy person', description: 'A person who is fit and healthy'},

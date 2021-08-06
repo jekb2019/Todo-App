@@ -1,1 +1,0 @@
-// The mock data inside data.js is moved to schema.js to enable mutation.
