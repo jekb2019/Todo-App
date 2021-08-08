@@ -1,4 +1,5 @@
 import { GraphQLID, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
+import { getHabitsWithIdentityId } from "../../../database/database.js";
 import HabitType from '../habit/habit.js'
 
 const IdentityType = new GraphQLObjectType({
@@ -9,7 +10,7 @@ const IdentityType = new GraphQLObjectType({
         description: { type: GraphQLString },
         habits: {
             type: new GraphQLList(HabitType),
-            resolve: (parent, args) => (habits.filter(habit => parent.id === habit.identityId)),
+            resolve: (parent, args) => getHabitsWithIdentityId(parent.id)
         }
     }),
 });
