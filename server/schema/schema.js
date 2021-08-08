@@ -1,44 +1,29 @@
-import { UserInputError } from "apollo-server-errors";
 import { GraphQLID, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
 import { v4 as uuid } from 'uuid';
 import IdentityType from './dataType/identity/identity.js';
 import HabitType from './dataType/habit/habit.js';
-
-
-let identities = [
-    {id: '1', name: 'Best developer', description: 'The best programmer in the world'},
-    {id: '2', name: 'Healthy person', description: 'A person who is fit and healthy'},
-    {id: '3', name: 'Kind person', description: 'A person who respects others'},
-    {id: '4', name: 'Handsome man'},
-]
-
-let habits = [
-    {id: '1', name:'Study coding', description: 'Watch coding tutorials', identityId: '1'},
-    {id: '2', name:'Do side projects', identityId: '1'},
-    {id: '3', name:'Eat healthy', description: 'No junk food!', identityId: '2'},
-    {id: '4', name:'Be nice', description: 'Smile always', identityId: '3'},
-]
+import { addHabit, addIdentity, getIdentityById, getAllHabits, getAllIdentities, getHabitById, removeIdentity, removeHabit, getHabitsWithIdentityId, removeHabitsWithIdentityId } from "../database/database.js";
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQuery',
     fields: {
         identities: {
             type: new GraphQLList(IdentityType),
-            resolve: (parent, args) => (identities),
+            resolve: (parent, args) => getAllIdentities(),
         },
         identity: {
             type: IdentityType,
             args:{ id: { type: GraphQLID }},
-            resolve: (parent, args) => (identities.find(identity => args.id === identity.id)),
+            resolve: (parent, args) => getIdentityById(args.id),
         },
         habits: {
             type: new GraphQLList(HabitType),
-            resolve: (parent, args) => (habits),
+            resolve: (parent, args) => getAllHabits(),
         },
         habit: {
             type: HabitType,
             args:{ id: { type: GraphQLID }},
-            resolve: (parent, args) => (habits.find(habit => args.id === habit.id)),
+            resolve: (parent, args) => getHabitById(args.id),
         },
     }
 });
@@ -55,11 +40,15 @@ const Mutation = new GraphQLObjectType({
             },
             resolve: (parent, args) => {
                 const { name, description } = args;
+                // Check if name is given
                 if(!name) {
                     return;
                 }
+                // Create new Identity
                 let newIdentity = { id: uuid() , name, description };
-                identities = [newIdentity, ... identities];
+
+                // Insert to DB
+                addIdentity(newIdentity);
                 return newIdentity;
             },
         },
@@ -70,11 +59,9 @@ const Mutation = new GraphQLObjectType({
                 id: {type: new GraphQLNonNull(GraphQLID)},
             },
             resolve: (parent, args) => {
-                // delete identity
-                identities = identities.filter(identity => args.id !== identity.id)
-                // delete related habits
-                habits = habits.filter(habit => args.id !== habit.identityId);
-                return identities;
+                removeIdentity(args.id);
+                removeHabitsWithIdentityId(args.id);
+                return getAllIdentities();
             },
         },
         // Add habit
@@ -87,16 +74,12 @@ const Mutation = new GraphQLObjectType({
             },
             resolve: (parent, args) => {
                 const { name, description, identityId } = args;
+                // Check if name and identityID is given
                 if(!name || !identityId) {
                     return;
                 }
-                const relatedIdentity = identities.find(identity => args.identityId === identity.id);
-                console.log(relatedIdentity);
-                if (!relatedIdentity) {
-                    throw new UserInputError("Invalid Identity Id");
-                }
                 let newHabit = { id: uuid() , name, description, identityId };
-                habits = [newHabit, ... habits];
+                addHabit(newHabit);
                 return newHabit;
             },
         },
@@ -107,8 +90,8 @@ const Mutation = new GraphQLObjectType({
                 id: {type: new GraphQLNonNull(GraphQLID)},
             },
             resolve: (parent, args) => {
-                habits = habits.filter(habit => args.id !== habit.id)
-                return habits;
+                removeHabit(args.id);
+                return getAllHabits();
             },
         },
     }
