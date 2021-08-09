@@ -1,0 +1,9 @@
+@value makerWhite from './common/colors.css';
+
+.app {
+  margin: 0;
+  padding: 0;
+  width: 700px;
+  height: 100vh;
+  background-color: makerWhite;
+}
