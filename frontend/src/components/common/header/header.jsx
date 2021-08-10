@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = (props) => (
   <div className={styles.container}>
-    <h1>Header</h1>
+    <h1 className={styles.title}>Atomic Habits</h1>
   </div>
 );
 

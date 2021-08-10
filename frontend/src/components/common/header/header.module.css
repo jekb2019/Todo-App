@@ -1,4 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap");
+
 .container {
   border: 1px solid black;
   height: 70px;
+}
+
+.title {
+  font-family: "Dancing Script";
+  font-size: 3em;
 }
