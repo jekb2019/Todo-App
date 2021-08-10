@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = (props) => (
   <div className={styles.container}>
-    <h1>Footer</h1>
+    <span className={styles.description}>You are whoever you wish to be</span>
   </div>
 );
 
