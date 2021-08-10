@@ -4,7 +4,6 @@ import Footer from "../common/footer/footer";
 import Header from "../common/header/header";
 
 const IdentitiesPage = (props) => (
-  //
   <div className={styles.container}>
     <Header />
     <section className={styles.contentBox}>
