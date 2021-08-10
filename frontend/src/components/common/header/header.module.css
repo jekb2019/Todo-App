@@ -4,6 +4,7 @@
 @value makerTransLightGray from '../../../common/colors.css';
 
 .container {
+  position: relative;
   height: 90px;
   display: flex;
   justify-content: center;
