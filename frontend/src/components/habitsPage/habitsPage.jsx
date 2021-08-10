@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../common/card/card";
 import Footer from "../common/footer/footer";
 import Header from "../common/header/header";
 import styles from "./habitsPage.module.css";
@@ -7,7 +8,17 @@ const HabitsPage = (props) => (
   <div className={styles.container}>
     <Header />
     <section className={styles.contentBox}>
-      <h1>Habits Page</h1>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </section>
     <Footer />
   </div>
