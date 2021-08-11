@@ -5,7 +5,7 @@ import Header from "../common/header/header";
 import styles from "./habitsPage.module.css";
 
 const HabitsPage = (props) => (
-  <div className={styles.container}>
+  <article className={styles.container}>
     <Header title="Atomic Habits" />
     <section className={styles.contentBox}>
       <Card title="Something to describe my habit" />
@@ -19,7 +19,7 @@ const HabitsPage = (props) => (
       <Card title="Something to describe" />
     </section>
     <Footer description="You are whoever you wish to be" />
-  </div>
+  </article>
 );
 
 export default HabitsPage;

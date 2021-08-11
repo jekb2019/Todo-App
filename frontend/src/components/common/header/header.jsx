@@ -3,10 +3,10 @@ import React from "react";
 import Button from "../button/button";
 
 const Header = ({ title }) => (
-  <div className={styles.container}>
+  <header className={styles.container}>
     <h1 className={styles.title}>{title}</h1>
     <Button />
-  </div>
+  </header>
 );
 
 export default Header;

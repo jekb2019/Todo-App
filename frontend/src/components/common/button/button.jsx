@@ -6,10 +6,9 @@ import { faSmile } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Button = (props) => (
-  <div className={styles.container}>
-    {/* <i class="fas fa-smile"></i> */}
+  <a className={styles.container}>
     <FontAwesomeIcon className={styles.icon} icon={faSmile} />
-  </div>
+  </a>
 );
 
 export default Button;

@@ -5,7 +5,7 @@ import Header from "../common/header/header";
 import Card from "../common/card/card";
 
 const IdentitiesPage = (props) => (
-  <div className={styles.container}>
+  <article className={styles.container}>
     <Header title="Who I am" />
     <section className={styles.contentBox}>
       <Card title="Something to describe my identity" />
@@ -14,7 +14,7 @@ const IdentitiesPage = (props) => (
       <Card title="Something to describe my identity" />
     </section>
     <Footer description="You are whoever you wish to be" />
-  </div>
+  </article>
 );
 
 export default IdentitiesPage;
