@@ -1,3 +1,9 @@
+/* Colors */
 @value makerWhite: white;
 @value makerLightGray: #F0F0F0;
 @value makerBlack: black;
+@value makerGray: gray;
+
+@value makerTransLightGray: rgba(0, 0, 0, 0.2);
+@value makerTransDarkWhite: rgba(255, 255, 255, 0.9);
+@value makerTransWhite: rgba(255, 255, 255, 0.7);

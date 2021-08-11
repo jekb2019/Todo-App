@@ -1,0 +1,24 @@
+@value makerTransDarkWhite from '../../../common/colors.css';
+@value makerTransWhite from '../../../common/colors.css';
+@value makerGray from '../../../common/colors.css';
+
+.container {
+  border-radius: 15px;
+  background-color: makerTransWhite;
+  width: 70px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container:hover {
+  background-color: makerTransDarkWhite;
+}
+
+.icon {
+  font-size: 1.8em;
+  color: makerGray;
+}

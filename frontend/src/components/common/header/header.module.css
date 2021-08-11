@@ -1,11 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap");
+@import "../../../common/fonts.css";
+@value makerWhite from '../../../common/colors.css';
+@value makerBlack from '../../../common/colors.css';
+@value makerTransLightGray from '../../../common/colors.css';
 
 .container {
-  border: 1px solid black;
-  height: 70px;
+  position: relative;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: makerTransLightGray;
 }
 
 .title {
+  color: makerWhite;
   font-family: "Dancing Script";
   font-size: 3em;
+  text-shadow: 2px 2px 1px makerBlack;
+  user-select: none;
+}
+
+.button {
+  position: absolute;
+  right: 30px;
 }

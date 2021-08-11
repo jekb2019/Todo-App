@@ -1,16 +1,25 @@
 import React from "react";
+import Card from "../common/card/card";
 import Footer from "../common/footer/footer";
 import Header from "../common/header/header";
 import styles from "./habitsPage.module.css";
 
 const HabitsPage = (props) => (
-  <div className={styles.container}>
-    <Header />
+  <article className={styles.container}>
+    <Header currentPage="habits" />
     <section className={styles.contentBox}>
-      <h1>Habits Page</h1>
+      <Card title="Something to describe my habit" />
+      <Card title="Something to describe my habit" />
+      <Card title="Something to describe my habit" />
+      <Card title="Something to describe" />
+      <Card title="Something to describe" />
+      <Card title="Something to describe" />
+      <Card title="Something to describe" />
+      <Card title="Something to describe" />
+      <Card title="Something to describe" />
     </section>
-    <Footer />
-  </div>
+    <Footer description="You are whoever you wish to be" />
+  </article>
 );
 
 export default HabitsPage;

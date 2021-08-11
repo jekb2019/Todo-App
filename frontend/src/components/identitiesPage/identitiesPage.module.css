@@ -1,11 +1,19 @@
+@value makerLightGray from '../../common/colors.css';
+
 .container {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-image: url("../../assets/images/boardBackground.jpg");
+  background-size: cover;
 }
 
 .contentBox {
-  border: 1px solid green;
+  padding-top: 10px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 }
