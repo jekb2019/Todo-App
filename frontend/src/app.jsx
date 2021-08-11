@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App({ habitService, identityService }) {
   return (
-    <Router>
-      <div className={styles.app}>
+    <div className={styles.app}>
+      <Router>
         <Switch>
           <Route path="/identities">
             <IdentitiesPage identityService={identityService} />
@@ -15,8 +15,8 @@ function App({ habitService, identityService }) {
             <HabitsPage habitService={habitService} />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
