@@ -1,18 +1,18 @@
 import styles from "./app.module.css";
 import HabitsPage from "./components/habitsPage/habitsPage";
 import IdentitiesPage from "./components/identitiesPage/identitiesPage";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+function App({ habitService, identityService }) {
   return (
     <Router>
       <div className={styles.app}>
         <Switch>
           <Route path="/identities">
-            <IdentitiesPage />
+            <IdentitiesPage identityService={identityService} />
           </Route>
           <Route path={["/", "/habits"]}>
-            <HabitsPage />
+            <HabitsPage habitService={habitService} />
           </Route>
         </Switch>
       </div>

@@ -24,7 +24,7 @@ const Button = ({ currentPage }) => {
       buttonIcon = identitiesRouteIcon;
   }
 
-  return <a className={styles.container}>{buttonIcon}</a>;
+  return <button className={styles.container}>{buttonIcon}</button>;
 };
 
 export default Button;

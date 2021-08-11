@@ -12,6 +12,11 @@
   align-items: center;
   cursor: pointer;
   user-select: none;
+  border: none;
+}
+
+.container:active {
+  outline: none;
 }
 
 .container:hover {
