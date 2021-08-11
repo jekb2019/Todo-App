@@ -6,7 +6,7 @@ import styles from "./habitsPage.module.css";
 
 const HabitsPage = (props) => (
   <article className={styles.container}>
-    <Header title="Atomic Habits" />
+    <Header currentPage="habits" />
     <section className={styles.contentBox}>
       <Card title="Something to describe my habit" />
       <Card title="Something to describe my habit" />

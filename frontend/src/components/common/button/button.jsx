@@ -1,14 +1,30 @@
 import React from "react";
 import styles from "./button.module.css";
-// import { FontAwesomeIcon } from "@fortawesome/fontawesome-svg-core";
 // import { far, faSmile } from "@fortawesome/free-solid-svg-icons";
-import { faSmile } from "@fortawesome/free-regular-svg-icons";
+import { faSmile, faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Button = (props) => (
-  <a className={styles.container}>
-    <FontAwesomeIcon className={styles.icon} icon={faSmile} />
-  </a>
+let buttonIcon;
+const identitiesRouteIcon = (
+  <FontAwesomeIcon className={styles.icon} icon={faSmile} />
 );
+const habitsRouteIcon = (
+  <FontAwesomeIcon className={styles.icon} icon={faCheckSquare} />
+);
+
+const Button = ({ currentPage }) => {
+  switch (currentPage) {
+    case "identities":
+      buttonIcon = habitsRouteIcon;
+      break;
+    case "habits":
+      buttonIcon = identitiesRouteIcon;
+      break;
+    default:
+      buttonIcon = identitiesRouteIcon;
+  }
+
+  return <a className={styles.container}>{buttonIcon}</a>;
+};
 
 export default Button;

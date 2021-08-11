@@ -3,9 +3,7 @@
 @value makerGray from '../../../common/colors.css';
 
 .container {
-  position: absolute;
   border-radius: 15px;
-  right: 30px;
   background-color: makerTransWhite;
   width: 70px;
   height: 40px;

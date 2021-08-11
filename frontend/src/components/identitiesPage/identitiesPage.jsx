@@ -6,7 +6,7 @@ import Card from "../common/card/card";
 
 const IdentitiesPage = (props) => (
   <article className={styles.container}>
-    <Header title="Who I am" />
+    <Header currentPage="identities" />
     <section className={styles.contentBox}>
       <Card title="Something to describe my identity" />
       <Card title="Something to describe my identity" />

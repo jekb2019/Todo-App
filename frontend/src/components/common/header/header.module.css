@@ -19,3 +19,8 @@
   text-shadow: 2px 2px 1px makerBlack;
   user-select: none;
 }
+
+.button {
+  position: absolute;
+  right: 30px;
+}
