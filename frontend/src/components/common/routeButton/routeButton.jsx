@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./button.module.css";
+import styles from "./routeButton.module.css";
 // import { far, faSmile } from "@fortawesome/free-solid-svg-icons";
 import { faSmile, faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,7 @@ const habitsRouteIcon = (
   <FontAwesomeIcon className={styles.icon} icon={faCheckSquare} />
 );
 
-const Button = ({ currentPage }) => {
+const RouteButton = ({ currentPage }) => {
   switch (currentPage) {
     case "identities":
       buttonIcon = habitsRouteIcon;
@@ -27,4 +27,4 @@ const Button = ({ currentPage }) => {
   return <button className={styles.container}>{buttonIcon}</button>;
 };
 
-export default Button;
+export default RouteButton;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./header.module.css";
 import React from "react";
-import Button from "../button/button";
+import RouteButton from "../routeButton/routeButton";
 
 const Header = ({ currentPage }) => {
   let pageRoute;
@@ -25,7 +25,7 @@ const Header = ({ currentPage }) => {
     <header className={styles.container}>
       <h1 className={styles.title}>{title}</h1>
       <Link className={styles.button} to={`/${pageRoute}`}>
-        <Button currentPage={currentPage} />
+        <RouteButton currentPage={currentPage} />
       </Link>
     </header>
   );
