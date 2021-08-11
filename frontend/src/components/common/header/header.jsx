@@ -2,9 +2,9 @@ import styles from "./header.module.css";
 import React from "react";
 import Button from "../button/button";
 
-const Header = (props) => (
+const Header = ({ title }) => (
   <div className={styles.container}>
-    <h1 className={styles.title}>Atomic Habits</h1>
+    <h1 className={styles.title}>{title}</h1>
     <Button />
   </div>
 );

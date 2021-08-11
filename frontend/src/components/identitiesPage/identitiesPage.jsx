@@ -2,14 +2,18 @@ import React from "react";
 import styles from "./identitiesPage.module.css";
 import Footer from "../common/footer/footer";
 import Header from "../common/header/header";
+import Card from "../common/card/card";
 
 const IdentitiesPage = (props) => (
   <div className={styles.container}>
-    <Header />
+    <Header title="Who I am" />
     <section className={styles.contentBox}>
-      <h1>Identity Page</h1>
+      <Card title="Something to describe my identity" />
+      <Card title="Something to describe my identity" />
+      <Card title="Something to describe my identity" />
+      <Card title="Something to describe my identity" />
     </section>
-    <Footer />
+    <Footer description="You are whoever you wish to be" />
   </div>
 );
 

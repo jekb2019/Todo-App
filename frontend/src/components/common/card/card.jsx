@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./card.module.css";
 
-const Card = (props) => (
+const Card = ({ title }) => (
   <div className={styles.container}>
-    <span className={styles.title}>Something to describe</span>
+    <span className={styles.title}>{title}</span>
   </div>
 );
 

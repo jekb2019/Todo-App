@@ -2,9 +2,9 @@ import styles from "./footer.module.css";
 
 import React from "react";
 
-const Footer = (props) => (
+const Footer = ({ description }) => (
   <div className={styles.container}>
-    <span className={styles.description}>You are whoever you wish to be</span>
+    <span className={styles.description}>{description}</span>
   </div>
 );
 
