@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./newIdentityModal.module.css";
 
-const NewIdentityModal = (props) => (
+const NewIdentityModal = ({ closeModal }) => (
   <article className={styles.container}>
-    <button className={styles.closeButton}>X</button>
+    <button onClick={closeModal} className={styles.closeButton}>
+      X
+    </button>
     <div className={styles.contentWrapper}>
       <h2 className={styles.title}>Add New Identity</h2>
       <form className={styles.form} id="addHabitForm">
         <div className={styles.field}>
-          <label for="name" className={styles.label}>
+          <label htmlFor="name" className={styles.label}>
             Name
           </label>
           <input className={styles.input} type="text" name="name"></input>
         </div>
         <div className={styles.field}>
-          <label for="description" className={styles.label}>
+          <label htmlFor="description" className={styles.label}>
             Description
           </label>
           <textarea

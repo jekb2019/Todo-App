@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./newHabitModal.module.css";
 
-const NewHabitModal = (props) => (
+const NewHabitModal = ({ closeModal }) => (
   <article className={styles.container}>
-    <button className={styles.closeButton}>X</button>
+    <button onClick={closeModal} className={styles.closeButton}>
+      X
+    </button>
     <div className={styles.contentWrapper}>
       <h2 className={styles.title}>Add New Habit</h2>
       <form className={styles.form} id="addHabitForm">
         <div className={styles.field}>
-          <label for="name" className={styles.label}>
+          <label htmlFor="name" className={styles.label}>
             Name
           </label>
           <input className={styles.input} type="text" name="name"></input>
         </div>
         <div className={styles.field}>
-          <label for="description" className={styles.label}>
+          <label htmlFor="description" className={styles.label}>
             Description
           </label>
           <textarea
@@ -23,7 +25,7 @@ const NewHabitModal = (props) => (
           ></textarea>
         </div>
         <div className={styles.field}>
-          <label for="identities" className={styles.label}>
+          <label htmlFor="identities" className={styles.label}>
             Identity
           </label>
           <select className={styles.input} name="identities">

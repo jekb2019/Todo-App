@@ -3,10 +3,10 @@ import NewHabitModal from "../../newHabitModal/newHabitModal";
 import NewIdentityModal from "../../newIdentityModal/newIdentityModal";
 import styles from "./modalWrapper.module.css";
 
-const ModalWrapper = (props) => (
+const ModalWrapper = ({ modalType, closeModal }) => (
   <div className={styles.container}>
-    {/* <NewHabitModal /> */}
-    <NewIdentityModal />
+    {modalType === "habit" && <NewHabitModal closeModal={closeModal} />}
+    {modalType === "identity" && <NewIdentityModal closeModal={closeModal} />}
   </div>
 );
 
