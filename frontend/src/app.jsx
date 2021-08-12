@@ -2,6 +2,7 @@ import styles from "./app.module.css";
 import HabitsPage from "./components/habitsPage/habitsPage";
 import IdentitiesPage from "./components/identitiesPage/identitiesPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ModalWrapper from "./components/common/modalWrapper/modalWrapper";
 
 function App({ habitService, identityService }) {
   return (
@@ -16,6 +17,8 @@ function App({ habitService, identityService }) {
           </Route>
         </Switch>
       </Router>
+      {/* Modal */}
+      <ModalWrapper />
     </div>
   );
 }
