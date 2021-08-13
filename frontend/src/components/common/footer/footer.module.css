@@ -1,14 +1,14 @@
 @import "../../../common/fonts.css";
 @value makerBlack from '../../../common/colors.css';
 @value makerWhite from '../../../common/colors.css';
-@value makerTransLightGray from '../../../common/colors.css';
+@value makerTransLightBlack from '../../../common/colors.css';
 
 .container {
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: makerTransLightGray;
+  background-color: makerTransLightBlack;
 }
 
 .description {

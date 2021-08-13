@@ -5,7 +5,8 @@
 @value makerGray: gray;
 @value makerBrown: #965e2e;
 
-@value makerTransLightGray: rgba(0, 0, 0, 0.2);
+@value makerTransLightBlack: rgba(0, 0, 0, 0.2);
+@value makerTransBlack: rgba(0, 0, 0, 0.4);
 @value makerTransDarkWhite: rgba(255, 255, 255, 0.9);
 @value makerTransWhite: rgba(255, 255, 255, 0.7);
 @value makerTransLightWhite: rgba(255, 255, 255, 0.4);

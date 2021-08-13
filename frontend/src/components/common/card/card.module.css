@@ -1,13 +1,13 @@
 @value makerWhite from '../../../common/colors.css';
 @value makerBlack from '../../../common/colors.css';
-@value makerTransLightGray from '../../../common/colors.css';
+@value makerTransLightBlack from '../../../common/colors.css';
 
 .container {
   min-height: 60px;
   width: 550px;
   margin: 13px 0;
   border-radius: 15px;
-  box-shadow: 2px 2px 8px 2px makerTransLightGray;
+  box-shadow: 2px 2px 8px 2px makerTransLightBlack;
   display: flex;
   align-items: center;
   overflow: hidden;
