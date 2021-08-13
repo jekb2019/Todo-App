@@ -12,12 +12,20 @@ const NewHabitModal = ({ closeModal, addNewHabit }) => {
       description,
       identity,
     };
+
     try {
       validateHabit(habit);
     } catch (e) {
       alert(e);
+      closeModal();
+      return;
     }
-    addNewHabit(habit);
+
+    addNewHabit(habit).catch((e) => {
+      alert(e);
+      closeModal();
+      return;
+    });
   };
 
   /**

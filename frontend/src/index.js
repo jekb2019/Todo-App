@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.module.css";
 import App from "./app";
-import HabitService from "./service/habitService/habitService";
-import IdentityService from "./service/identityService/identityService";
+import HabitService from "./services/habitService/habitService";
+import IdentityService from "./services/identityService/identityService";
 
 const habitService = new HabitService();
 const identityService = new IdentityService();
