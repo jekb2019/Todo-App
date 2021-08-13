@@ -45,11 +45,13 @@ function App({ habitService, identityService }) {
           </Route>
         </Switch>
       </Router>
-      {isModalOpen && modalType === MODAL_TYPE_HABIT && (
-        <ModalWrapper modalType={modalType} closeModal={closeModal} />
-      )}
-      {isModalOpen && modalType === MODAL_TYPE_IDENTITY && (
-        <ModalWrapper modalType={modalType} closeModal={closeModal} />
+      {isModalOpen && modalType && (
+        <ModalWrapper
+          modalType={modalType}
+          closeModal={closeModal}
+          addNewHabit={habitService.addNewHabit}
+          addNewIdentity={identityService.addNewIdentity}
+        />
       )}
     </div>
   );

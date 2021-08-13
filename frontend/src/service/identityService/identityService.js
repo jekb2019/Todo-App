@@ -4,8 +4,12 @@ import { identities } from "../mock/mockData";
 class IdentityService {
   maxHabitNum = 30;
 
-  getAllIdentities() {
+  async getAllIdentities() {
     return identities;
+  }
+
+  async addNewIdentity(identity) {
+    console.log("[identityService]: Add Identity");
   }
 }
 
