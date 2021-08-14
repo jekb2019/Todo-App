@@ -6,18 +6,27 @@ import ModalWrapper from "./components/common/modalWrapper/modalWrapper";
 import { useState } from "react";
 
 function App({ habitService, identityService }) {
-  const MODAL_TYPE_HABIT = "habit";
-  const MODAL_TYPE_IDENTITY = "identity";
+  const MODAL_TYPE_ADD_HABIT = "habit";
+  const MODAL_TYPE_ADD_IDENTITY = "identity";
+
+  const MODAL_TYPE_HABIT_DETAIL = "habit_detail";
+  const MODAL_TYPE_IDENTITY_DETAIL = "identity_detail";
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
 
   const openModal = (modalType) => {
-    if (modalType === MODAL_TYPE_HABIT) {
-      setModalType(MODAL_TYPE_HABIT);
+    if (modalType === MODAL_TYPE_ADD_HABIT) {
+      setModalType(MODAL_TYPE_ADD_HABIT);
       setIsModalOpen(true);
-    } else if (modalType === MODAL_TYPE_IDENTITY) {
-      setModalType(MODAL_TYPE_IDENTITY);
+    } else if (modalType === MODAL_TYPE_ADD_IDENTITY) {
+      setModalType(MODAL_TYPE_ADD_IDENTITY);
+      setIsModalOpen(true);
+    } else if (modalType === MODAL_TYPE_HABIT_DETAIL) {
+      setModalType(MODAL_TYPE_HABIT_DETAIL);
+      setIsModalOpen(true);
+    } else if (modalType === MODAL_TYPE_IDENTITY_DETAIL) {
+      setModalType(MODAL_TYPE_IDENTITY_DETAIL);
       setIsModalOpen(true);
     }
   };
@@ -34,14 +43,11 @@ function App({ habitService, identityService }) {
           <Route path="/identities">
             <IdentitiesPage
               identityService={identityService}
-              openModal={() => openModal(MODAL_TYPE_IDENTITY)}
+              openModal={openModal}
             />
           </Route>
           <Route path={["/", "/habits"]}>
-            <HabitsPage
-              habitService={habitService}
-              openModal={() => openModal(MODAL_TYPE_HABIT)}
-            />
+            <HabitsPage habitService={habitService} openModal={openModal} />
           </Route>
         </Switch>
       </Router>

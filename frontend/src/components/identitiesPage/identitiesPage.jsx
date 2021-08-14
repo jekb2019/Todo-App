@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./identitiesPage.module.css";
 import Footer from "../common/footer/footer";
 import Header from "../common/header/header";
@@ -11,22 +11,32 @@ const IdentitiesPage = ({ identityService, openModal }) => {
   /**
    * Fecth identities from server
    */
-  const fetchIdentities = async () => {
+  const fetchIdentities = useCallback(async () => {
     const identities = await identityService.getAllIdentities();
     setIdentities(identities);
+  }, [identityService]);
+
+  // TODO(Jason): Change to ENUM?
+  const openIdentityModal = () => {
+    openModal("identity");
   };
 
   useEffect(() => {
     fetchIdentities();
-  }, [identities]);
+  }, [identities, fetchIdentities]);
 
   return (
     <article className={styles.container}>
       <Header currentPage="identities" />
       <section className={styles.contentBox}>
-        <AddNewButton openModal={openModal} />
+        <AddNewButton openModal={openIdentityModal} />
         {identities.map((identity) => (
-          <Card key={identity.id} title={identity.name} />
+          <Card
+            key={identity.id}
+            type="identity"
+            openModal={openModal}
+            title={identity.name}
+          />
         ))}
       </section>
       <Footer description="You are whoever you wish to be" />
