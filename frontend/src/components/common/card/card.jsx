@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./card.module.css";
 
-const Card = ({ title, openModal, type }) => {
+const Card = ({ id, title, openModal, type }) => {
   const openDetailModal = () => {
     if (type === "habit") {
-      openModal("habit_detail");
+      openModal("habit_detail", id);
     } else if (type === "identity") {
-      openModal("identity_detail");
+      openModal("identity_detail", id);
     }
   };
 

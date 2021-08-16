@@ -17,6 +17,10 @@ class IdentityService {
     return identities;
   }
 
+  async getIdentityWithId(id) {
+    return identities.find((identity) => identity.id === id);
+  }
+
   async addNewIdentity(identity) {
     // Get current number of identity in DB
     const currentIdentityNum = await this.getIdentityNum();

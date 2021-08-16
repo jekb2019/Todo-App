@@ -17,6 +17,10 @@ class HabitService {
     return habits;
   }
 
+  async getHabitWithId(id) {
+    return habits.find((habit) => habit.id === id);
+  }
+
   async addNewHabit(habit) {
     // Get current number of habits in DB
     const currentHabitNum = await this.getHabitNum();
