@@ -36,6 +36,7 @@ const IdentitiesPage = ({ identityService, openModal }) => {
             type="identity"
             openModal={openModal}
             title={identity.name}
+            id={identity.id}
           />
         ))}
       </section>

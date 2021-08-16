@@ -16,12 +16,44 @@ function App({ habitService, identityService }) {
   const MODAL_TYPE_HABIT_DETAIL = "habit_detail";
   const MODAL_TYPE_IDENTITY_DETAIL = "identity_detail";
 
+  // Default dummy states
+  const defaultHabitCard = {
+    name: "Habit Name",
+    identity: "Related Identity",
+    description: "Habit Description",
+  };
+
+  const defaultIdentityCard = {
+    name: "Best developer",
+    description: "The best programmer in the world",
+  };
+
   // States
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
+  const [currentHabitCard, setCurrentHabitCard] = useState(defaultHabitCard);
+  const [currentIdentityCard, setCurrentIdentityCard] =
+    useState(defaultIdentityCard);
 
-  // Controllers
-  const openModal = (modalType) => {
+  // Card controllers
+  const setupHabitCard = async (id) => {
+    const habit = await habitService.getHabitWithId(id);
+    setCurrentHabitCard({
+      ...habit,
+      ...(!habit.description && { description: "No description..." }),
+    });
+  };
+
+  const setupIdentityCard = async (id) => {
+    const identity = await identityService.getIdentityWithId(id);
+    setCurrentIdentityCard({
+      ...identity,
+      ...(!identity.description && { description: "No description..." }),
+    });
+  };
+
+  // Modal controllers
+  const openModal = (modalType, cardItemId = null) => {
     if (modalType === MODAL_TYPE_ADD_HABIT) {
       setModalType(MODAL_TYPE_ADD_HABIT);
       setIsModalOpen(true);
@@ -30,9 +62,11 @@ function App({ habitService, identityService }) {
       setIsModalOpen(true);
     } else if (modalType === MODAL_TYPE_HABIT_DETAIL) {
       setModalType(MODAL_TYPE_HABIT_DETAIL);
+      setupHabitCard(cardItemId);
       setIsModalOpen(true);
     } else if (modalType === MODAL_TYPE_IDENTITY_DETAIL) {
       setModalType(MODAL_TYPE_IDENTITY_DETAIL);
+      setupIdentityCard(cardItemId);
       setIsModalOpen(true);
     }
   };
@@ -40,6 +74,8 @@ function App({ habitService, identityService }) {
   const closeModal = () => {
     setIsModalOpen(false);
     setModalType(null);
+    setCurrentHabitCard(defaultHabitCard);
+    setCurrentIdentityCard(defaultIdentityCard);
   };
 
   return (
@@ -72,10 +108,16 @@ function App({ habitService, identityService }) {
             />
           )}
           {modalType === MODAL_TYPE_HABIT_DETAIL && (
-            <HabitDetailModal closeModal={closeModal} />
+            <HabitDetailModal
+              closeModal={closeModal}
+              currentCard={currentHabitCard}
+            />
           )}
           {modalType === MODAL_TYPE_IDENTITY_DETAIL && (
-            <IdentityDetailModal closeModal={closeModal} />
+            <IdentityDetailModal
+              closeModal={closeModal}
+              currentCard={currentIdentityCard}
+            />
           )}
         </ModalWrapper>
       )}

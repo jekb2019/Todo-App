@@ -37,6 +37,7 @@ const HabitsPage = ({ habitService, openModal }) => {
               type="habit"
               openModal={openModal}
               title={habit.name}
+              id={habit.id}
             />
           );
         })}
