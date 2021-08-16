@@ -4,23 +4,17 @@ import IdentitiesPage from "./components/identitiesPage/identitiesPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ModalWrapper from "./components/common/modalWrapper/modalWrapper";
 import { useState } from "react";
-import NewHabitModal from "./components/newHabitModal/newHabitModal";
-import NewIdentityModal from "./components/newIdentityModal/newIdentityModal";
-import HabitDetailModal from "./components/habitDetailModal/habitDetailModal";
-import IdentityDetailModal from "./components/identityDetailModal/identityDetailModal";
 
 function App({ habitService, identityService }) {
-  // Modal Types
   const MODAL_TYPE_ADD_HABIT = "habit";
   const MODAL_TYPE_ADD_IDENTITY = "identity";
+
   const MODAL_TYPE_HABIT_DETAIL = "habit_detail";
   const MODAL_TYPE_IDENTITY_DETAIL = "identity_detail";
 
-  // States
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
 
-  // Controllers
   const openModal = (modalType) => {
     if (modalType === MODAL_TYPE_ADD_HABIT) {
       setModalType(MODAL_TYPE_ADD_HABIT);
@@ -57,21 +51,13 @@ function App({ habitService, identityService }) {
           </Route>
         </Switch>
       </Router>
-      {isModalOpen && (
-        <ModalWrapper closeModal={closeModal}>
-          {modalType === MODAL_TYPE_ADD_HABIT && (
-            <NewHabitModal closeModal={closeModal} />
-          )}
-          {modalType === MODAL_TYPE_ADD_IDENTITY && (
-            <NewIdentityModal closeModal={closeModal} />
-          )}
-          {modalType === MODAL_TYPE_HABIT_DETAIL && (
-            <HabitDetailModal closeModal={closeModal} />
-          )}
-          {modalType === MODAL_TYPE_IDENTITY_DETAIL && (
-            <IdentityDetailModal closeModal={closeModal} />
-          )}
-        </ModalWrapper>
+      {isModalOpen && modalType && (
+        <ModalWrapper
+          modalType={modalType}
+          closeModal={closeModal}
+          addNewHabit={habitService.addNewHabit}
+          addNewIdentity={identityService.addNewIdentity}
+        />
       )}
     </div>
   );
