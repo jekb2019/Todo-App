@@ -1,6 +1,6 @@
 @value makerWhite from '../../common/colors.css';
 @value makerBrown from '../../common/colors.css';
-@value makerTransLightBlack: rgba(0, 0, 0, 0.2);
+@value makerTransLightBlack from '../../common/colors.css';
 
 .container {
   border-radius: 15px;
@@ -11,10 +11,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-}
-
-.closeButton:hover {
-  background-color: makerTransLightBlack;
 }
 
 .contentWrapper {
