@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./newHabitModal.module.css";
+import { validateHabit } from "../../validators/validators";
 
 const NewHabitModal = ({ closeModal, addNewHabit }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    const name = e.currentTarget.elements.habitName.value;
-    const description = e.currentTarget.elements.habitDescription.value;
-    const identity = e.currentTarget.elements.habitIdentity.value;
+    const formElements = e.currentTarget.elements;
+    const name = formElements.habitName.value;
+    const description = formElements.habitDescription.value;
+    const identity = formElements.habitIdentity.value;
     const habit = {
       name,
       description,
@@ -20,22 +22,13 @@ const NewHabitModal = ({ closeModal, addNewHabit }) => {
       closeModal();
       return;
     }
-
+    // Add new habit to server
     addNewHabit(habit).catch((e) => {
       alert(e);
       closeModal();
       return;
     });
-  };
-
-  /**
-   * Validate user input
-   */
-  const validateHabit = (habit) => {
-    const { name, description, identity } = habit;
-    if (name.length < 1 || description < 1 || !identity) {
-      throw new Error("Invalid habit information");
-    }
+    closeModal();
   };
 
   return (

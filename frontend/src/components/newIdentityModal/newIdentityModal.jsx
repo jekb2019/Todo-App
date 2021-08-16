@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "./newIdentityModal.module.css";
+import { validateIdentity } from "../../validators/validators";
 
 const NewIdentityModal = ({ closeModal, addNewIdentity }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    const name = e.currentTarget.elements.identityName.value;
-    const description = e.currentTarget.elements.identityDescription.value;
+    const formElements = e.currentTarget.elements;
+    const name = formElements.identityName.value;
+    const description = formElements.identityDescription.value;
     const identity = {
       name,
       description,
     };
+
     try {
       validateIdentity(identity);
     } catch (e) {
@@ -17,21 +20,13 @@ const NewIdentityModal = ({ closeModal, addNewIdentity }) => {
       closeModal();
       return;
     }
+    // Add new identity to server
     addNewIdentity(identity).catch((e) => {
       alert(e);
       closeModal();
       return;
     });
-  };
-
-  /**
-   * Validate user input
-   */
-  const validateIdentity = (identiity) => {
-    const { name, description } = identiity;
-    if (name.length < 1 || description < 1) {
-      throw new Error("Invalid identiity information");
-    }
+    closeModal();
   };
 
   return (

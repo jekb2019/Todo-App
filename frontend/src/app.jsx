@@ -60,10 +60,16 @@ function App({ habitService, identityService }) {
       {isModalOpen && (
         <ModalWrapper closeModal={closeModal}>
           {modalType === MODAL_TYPE_ADD_HABIT && (
-            <NewHabitModal closeModal={closeModal} />
+            <NewHabitModal
+              closeModal={closeModal}
+              addNewHabit={habitService.addNewHabit}
+            />
           )}
           {modalType === MODAL_TYPE_ADD_IDENTITY && (
-            <NewIdentityModal closeModal={closeModal} />
+            <NewIdentityModal
+              closeModal={closeModal}
+              addNewIdentity={identityService.addNewIdentity}
+            />
           )}
           {modalType === MODAL_TYPE_HABIT_DETAIL && (
             <HabitDetailModal closeModal={closeModal} />
