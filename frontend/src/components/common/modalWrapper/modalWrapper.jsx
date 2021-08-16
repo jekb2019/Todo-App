@@ -1,4 +1,6 @@
 import React from "react";
+import HabitDetailModal from "../../habitDetailModal/habitDetailModal";
+import IdentityDetailModal from "../../identityDetailModal/identityDetailModal";
 import NewHabitModal from "../../newHabitModal/newHabitModal";
 import NewIdentityModal from "../../newIdentityModal/newIdentityModal";
 import styles from "./modalWrapper.module.css";
@@ -14,6 +16,7 @@ const ModalWrapper = ({
       closeModal();
     }
   };
+
   return (
     <div
       onClick={onBackgroundClickHandler}
@@ -28,6 +31,12 @@ const ModalWrapper = ({
           closeModal={closeModal}
           addNewIdentity={addNewIdentity}
         />
+      )}
+      {modalType === "habit_detail" && (
+        <HabitDetailModal closeModal={closeModal} />
+      )}
+      {modalType === "identity_detail" && (
+        <IdentityDetailModal closeModal={closeModal} />
       )}
     </div>
   );
