@@ -1,0 +1,65 @@
+@value makerWhite from '../../common/colors.css';
+@value makerBrown from '../../common/colors.css';
+@value makerTransLightBlack from '../../common/colors.css';
+
+.container {
+  border-radius: 15px;
+  width: 500px;
+  height: 400px;
+  transform-origin: center center;
+  background-color: makerWhite;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.contentWrapper {
+  position: relative;
+  /* border: 1px solid black; */
+  width: 400px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: "Dancing Script";
+  padding-bottom: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: makerBrown;
+}
+
+.title::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  border-bottom: 1px solid makerBrown;
+  bottom: 10px;
+}
+
+.addButton {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  border: 2px solid makerBrown;
+  color: makerBrown;
+  border-radius: 15px;
+  font-size: 1.5em;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+.addButton:hover {
+  background-color: makerTransLightBlack;
+}
+
+.addButton:active {
+  font-family: sans-serif;
+  outline: none;
+}

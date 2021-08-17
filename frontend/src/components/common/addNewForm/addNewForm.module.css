@@ -1,0 +1,36 @@
+@value makerBlack from '../../../common/colors.css';
+
+.form {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.field {
+  /* border: 1px solid red; */
+  padding-top: 13px;
+  padding-bottom: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.3em;
+  font-family: sans-serif;
+}
+
+.input {
+  width: 280px;
+  font-size: 1.2em;
+  resize: none;
+  border: 1px solid makerBlack;
+  border-radius: 10px;
+  height: 30px;
+  padding-left: 10px;
+  font-family: sans-serif;
+}
+
+.inputTextArea {
+  padding-top: 5px;
+  height: 60px;
+}

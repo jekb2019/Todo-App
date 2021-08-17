@@ -1,4 +1,20 @@
+@import "../../../common/fonts.css";
+@value makerBlack from '../../../common/colors.css';
+@value makerWhite from '../../../common/colors.css';
+@value makerTransLightBlack from '../../../common/colors.css';
+
 .container {
-  border: 1px solid black;
   height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: makerTransLightBlack;
+}
+
+.description {
+  color: makerWhite;
+  font-weight: 600;
+  font-family: "Dancing Script";
+  text-shadow: 1px 1px 5px makerBlack;
+  font-size: 1.8em;
 }

@@ -1,0 +1,33 @@
+@value makerWhite from '../../../common/colors.css';
+@value makerBlack from '../../../common/colors.css';
+@value makerTransLightBlack from '../../../common/colors.css';
+
+.container {
+  min-height: 60px;
+  width: 550px;
+  margin: 13px 0;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px 2px makerTransLightBlack;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-image: url("../../../assets/images/cardBackground.jpg");
+  background-size: cover;
+  transition: transform 0.1s;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  color: makerWhite;
+  font-size: 1.7em;
+  margin-left: 40px;
+  letter-spacing: 1.5px;
+  font-family: "Shadows Into Light";
+  text-shadow: 1px 1px 2px makerBlack;
+  white-space: nowrap;
+}
