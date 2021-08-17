@@ -79,6 +79,7 @@ const AddNewForm = ({ type, submitHandler, closeModal }) => {
             className={styles.input}
             name="identities"
           >
+            {/* TODO: (Jason) make it dynamic */}
             <option value="i1">Identity 1</option>
             <option value="i2">Identity 2</option>
             <option value="i3">Identity 3</option>
