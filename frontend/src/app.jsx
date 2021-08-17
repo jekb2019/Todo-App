@@ -38,8 +38,11 @@ function App({ habitService, identityService }) {
   // Card controllers
   const setupHabitCard = async (id) => {
     const habit = await habitService.getHabitWithId(id);
+    const identity = await identityService.getIdentityWithId(habit.identityId);
+
     setCurrentHabitCard({
       ...habit,
+      identity: identity.name,
       ...(!habit.description && { description: "No description..." }),
     });
   };
@@ -78,6 +81,16 @@ function App({ habitService, identityService }) {
     setCurrentIdentityCard(defaultIdentityCard);
   };
 
+  const deleteHabit = () => {
+    habitService.deleteHabit(currentHabitCard.id);
+    closeModal();
+  };
+
+  const deleteIdentity = () => {
+    identityService.deleteIdentity(currentIdentityCard.id);
+    closeModal();
+  };
+
   return (
     <div className={styles.app}>
       <Router>
@@ -111,12 +124,14 @@ function App({ habitService, identityService }) {
             <HabitDetailModal
               closeModal={closeModal}
               currentCard={currentHabitCard}
+              deleteCard={deleteHabit}
             />
           )}
           {modalType === MODAL_TYPE_IDENTITY_DETAIL && (
             <IdentityDetailModal
               closeModal={closeModal}
               currentCard={currentIdentityCard}
+              deleteCard={deleteIdentity}
             />
           )}
         </ModalWrapper>

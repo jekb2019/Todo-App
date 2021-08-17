@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./habitDetailModal.module.css";
 
-const HabitDetailModal = ({ currentCard }) => {
+const HabitDetailModal = ({ currentCard, closeModal, deleteCard }) => {
   const { name, identity, description } = currentCard;
   return (
     <div className={styles.container}>
@@ -11,8 +11,8 @@ const HabitDetailModal = ({ currentCard }) => {
         <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.buttons}>
-        <button>OK</button>
-        <button>Delete</button>
+        <button onClick={closeModal}>OK</button>
+        <button onClick={deleteCard}>Delete</button>
       </div>
     </div>
   );

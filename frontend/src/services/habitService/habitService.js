@@ -32,6 +32,10 @@ class HabitService {
       `[habitService]: Add Habit - ${name} ${description} ${identity}`
     );
   }
+
+  async deleteHabit(id) {
+    console.log(`[habitService]: Habit with id{${id}} deleted`);
+  }
 }
 
 export default HabitService;

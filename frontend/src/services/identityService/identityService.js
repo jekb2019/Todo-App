@@ -30,6 +30,10 @@ class IdentityService {
     const { name, description } = identity;
     console.log(`[identityService]: Add Identity - ${name} ${description}`);
   }
+
+  async deleteIdentity(id) {
+    console.log(`[IdentityService]: Identity with id{${id}} deleted`);
+  }
 }
 
 export default IdentityService;
