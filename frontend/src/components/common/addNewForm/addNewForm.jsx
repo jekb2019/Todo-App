@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./addNewForm.module.css";
 import {
   validateIdentity,
   validateHabit,
 } from "../../../validators/validators";
+import { CloseModalContext } from "../../../context/modalContext";
 
-const AddNewForm = ({ type, submitHandler, closeModal }) => {
+const AddNewForm = ({ type, submitHandler }) => {
+  const closeModal = useContext(CloseModalContext);
+
   let formName;
   if (type === "habit") {
     formName = "addHabitForm";

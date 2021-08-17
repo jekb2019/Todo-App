@@ -3,18 +3,13 @@ import styles from "./newIdentityModal.module.css";
 import AddNewForm from "../common/addNewForm/addNewForm";
 import CloseButton from "../closeButton/closeButton";
 
-const NewIdentityModal = ({ closeModal, addNewIdentity }) => {
+const NewIdentityModal = ({ addNewIdentity }) => {
   return (
     <article className={styles.container}>
-      <CloseButton closeModal={closeModal} />
+      <CloseButton />
       <div className={styles.contentWrapper}>
         <h2 className={styles.title}>Add New Identity</h2>
-        <AddNewForm
-          type="identity"
-          submitHandler={addNewIdentity}
-          // TODO(Jason): use Context for closeModal prop
-          closeModal={closeModal}
-        />
+        <AddNewForm type="identity" submitHandler={addNewIdentity} />
         <button className={styles.addButton} form="addIdentityForm">
           Add
         </button>

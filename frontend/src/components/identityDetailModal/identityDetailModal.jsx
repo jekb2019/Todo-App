@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CloseModalContext } from "../../context/modalContext";
 import styles from "./identityDetailModal.module.css";
 
-const IdentityDetailModal = ({ currentCard, closeModal, deleteCard }) => {
+const IdentityDetailModal = ({ currentCard, deleteCard }) => {
+  const closeModal = useContext(CloseModalContext);
   const { name, description } = currentCard;
   return (
     <div className={styles.container}>
