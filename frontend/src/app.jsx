@@ -8,6 +8,7 @@ import NewHabitModal from "./components/newHabitModal/newHabitModal";
 import NewIdentityModal from "./components/newIdentityModal/newIdentityModal";
 import HabitDetailModal from "./components/habitDetailModal/habitDetailModal";
 import IdentityDetailModal from "./components/identityDetailModal/identityDetailModal";
+import { CloseModalContext } from "./context/modalContext";
 
 function App({ habitService, identityService }) {
   // Modal Types
@@ -106,36 +107,32 @@ function App({ habitService, identityService }) {
           </Route>
         </Switch>
       </Router>
-      {isModalOpen && (
-        <ModalWrapper closeModal={closeModal}>
-          {modalType === MODAL_TYPE_ADD_HABIT && (
-            <NewHabitModal
-              closeModal={closeModal}
-              addNewHabit={habitService.addNewHabit}
-            />
-          )}
-          {modalType === MODAL_TYPE_ADD_IDENTITY && (
-            <NewIdentityModal
-              closeModal={closeModal}
-              addNewIdentity={identityService.addNewIdentity}
-            />
-          )}
-          {modalType === MODAL_TYPE_HABIT_DETAIL && (
-            <HabitDetailModal
-              closeModal={closeModal}
-              currentCard={currentHabitCard}
-              deleteCard={deleteHabit}
-            />
-          )}
-          {modalType === MODAL_TYPE_IDENTITY_DETAIL && (
-            <IdentityDetailModal
-              closeModal={closeModal}
-              currentCard={currentIdentityCard}
-              deleteCard={deleteIdentity}
-            />
-          )}
-        </ModalWrapper>
-      )}
+      <CloseModalContext.Provider value={closeModal}>
+        {isModalOpen && (
+          <ModalWrapper>
+            {modalType === MODAL_TYPE_ADD_HABIT && (
+              <NewHabitModal addNewHabit={habitService.addNewHabit} />
+            )}
+            {modalType === MODAL_TYPE_ADD_IDENTITY && (
+              <NewIdentityModal
+                addNewIdentity={identityService.addNewIdentity}
+              />
+            )}
+            {modalType === MODAL_TYPE_HABIT_DETAIL && (
+              <HabitDetailModal
+                currentCard={currentHabitCard}
+                deleteCard={deleteHabit}
+              />
+            )}
+            {modalType === MODAL_TYPE_IDENTITY_DETAIL && (
+              <IdentityDetailModal
+                currentCard={currentIdentityCard}
+                deleteCard={deleteIdentity}
+              />
+            )}
+          </ModalWrapper>
+        )}
+      </CloseModalContext.Provider>
     </div>
   );
 }

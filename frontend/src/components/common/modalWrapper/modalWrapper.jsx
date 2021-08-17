@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CloseModalContext } from "../../../context/modalContext";
 import styles from "./modalWrapper.module.css";
 
-const ModalWrapper = ({ children, closeModal }) => {
+const ModalWrapper = ({ children }) => {
+  const closeModal = useContext(CloseModalContext);
   const onBackgroundClickHandler = (e) => {
     if (e.target.id === "modalWrapper") {
       closeModal();
     }
   };
-
   return (
     <div
       id="modalWrapper"
