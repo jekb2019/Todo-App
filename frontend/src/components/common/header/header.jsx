@@ -23,7 +23,9 @@ const Header = ({ currentPage }) => {
 
   return (
     <header className={styles.container}>
-      <h1 className={styles.title}>{title}</h1>
+      <h1 className={styles.title} data-testid="headerTitle">
+        {title}
+      </h1>
       <Link className={styles.button} to={`/${pageRoute}`}>
         <RouteButton currentPage={currentPage} />
       </Link>

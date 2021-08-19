@@ -8,9 +8,15 @@ const NewHabitModal = ({ addNewHabit }) => {
     <article className={styles.container}>
       <CloseButton />
       <div className={styles.contentWrapper}>
-        <h2 className={styles.title}>Add New Habit</h2>
+        <h2 className={styles.title} data-testid="newHabitModalTitle">
+          Add New Habit
+        </h2>
         <AddNewForm type="habit" submitHandler={addNewHabit} />
-        <button className={styles.addButton} form="addHabitForm">
+        <button
+          data-testid="addNewButton"
+          className={styles.addButton}
+          form="addHabitForm"
+        >
           Add
         </button>
       </div>

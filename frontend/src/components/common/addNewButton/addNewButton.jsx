@@ -3,7 +3,11 @@ import styles from "./addNewButton.module.css";
 
 const AddNewButton = ({ openModal }) => {
   return (
-    <button onClick={openModal} className={styles.container}>
+    <button
+      data-testid="addNewButton"
+      onClick={openModal}
+      className={styles.container}
+    >
       <span className={styles.icon}>+</span>
     </button>
   );

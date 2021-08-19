@@ -60,6 +60,7 @@ const AddNewForm = ({ type, submitHandler }) => {
           className={styles.input}
           type="text"
           name="name"
+          data-testid="inputName"
         ></input>
       </div>
       <div className={styles.field}>
@@ -70,6 +71,7 @@ const AddNewForm = ({ type, submitHandler }) => {
           id={`${type}Description`}
           className={`${styles.input} ${styles.inputTextArea}`}
           name="description"
+          data-testid="inputDescription"
         ></textarea>
       </div>
       {type === "habit" && (
@@ -81,6 +83,7 @@ const AddNewForm = ({ type, submitHandler }) => {
             id={`${type}Identity`}
             className={styles.input}
             name="identities"
+            data-testid="inputIdentity"
           >
             {/* TODO: (Jason) make it dynamic */}
             <option value="i1">Identity 1</option>
