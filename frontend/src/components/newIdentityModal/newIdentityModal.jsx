@@ -8,9 +8,15 @@ const NewIdentityModal = ({ addNewIdentity }) => {
     <article className={styles.container}>
       <CloseButton />
       <div className={styles.contentWrapper}>
-        <h2 className={styles.title}>Add New Identity</h2>
+        <h2 className={styles.title} data-testid="newIdentityModalTitle">
+          Add New Identity
+        </h2>
         <AddNewForm type="identity" submitHandler={addNewIdentity} />
-        <button className={styles.addButton} form="addIdentityForm">
+        <button
+          data-testid="addNewButton"
+          className={styles.addButton}
+          form="addIdentityForm"
+        >
           Add
         </button>
       </div>

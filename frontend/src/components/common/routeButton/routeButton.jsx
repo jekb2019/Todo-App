@@ -24,7 +24,11 @@ const RouteButton = ({ currentPage }) => {
       buttonIcon = identitiesRouteIcon;
   }
 
-  return <button className={styles.container}>{buttonIcon}</button>;
+  return (
+    <button className={styles.container} data-testid="routeButton">
+      {buttonIcon}
+    </button>
+  );
 };
 
 export default RouteButton;

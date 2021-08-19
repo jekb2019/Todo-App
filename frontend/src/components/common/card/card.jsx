@@ -11,7 +11,11 @@ const Card = ({ id, title, openModal, type }) => {
   };
 
   return (
-    <div onClick={openDetailModal} className={styles.container}>
+    <div
+      data-testid="card"
+      onClick={openDetailModal}
+      className={styles.container}
+    >
       <span className={styles.title}>{title}</span>
     </div>
   );

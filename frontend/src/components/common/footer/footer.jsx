@@ -4,7 +4,9 @@ import React from "react";
 
 const Footer = ({ description }) => (
   <footer className={styles.container}>
-    <span className={styles.description}>{description}</span>
+    <span className={styles.description} data-testid="footerTitle">
+      {description}
+    </span>
   </footer>
 );
 
